@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>
+        OS Detection
+    </title>
+</head>
+
+<body style="text-align:center;" id="body">
+    <h1 style="color: darkorchid">
+        Operating System Detector
+    </h1>
+    <p id="GFG_UP" style="font-size: 19px;  
+              font-weight: bold;">
+    </p>
+    <button onclick="GFG_Fun()">
+        Click Here
+    </button>
+    <p id="GFG_DOWN" style="color: darkorchid;  
+              font-size: 24px;  
+              font-weight: bold;">
+    </p>
+    <script>
+        HTMLDocument.prototype.e = document.getElementById;
+        var el_up = document.e("GFG_UP");
+        var el_down = document.e("GFG_DOWN");
+        el_up.innerHTML = "Click The Button To Know Your Operating System";
+        var Name = "Not known";
+        if (navigator.appVersion.indexOf("Win") != -1) Name =
+            "Windows OS";
+        if (navigator.appVersion.indexOf("Mac") != -1) Name =
+            "MacOS";
+        if (navigator.appVersion.indexOf("X11") != -1) Name =
+            "UNIX OS";
+        if (navigator.appVersion.indexOf("Linux") != -1) Name =
+            "Linux OS";
+
+        function GFG_Fun() {
+            el_down.innerHTML = Name;
+        }
+    </script>
+
+    <h1 style="color: darkorchid">
+        Geolocation Finder
+    </h1>
+    <p id="GFG_UP" style="font-size: 19px;  
+          font-weight: bold;">
+    </p>
+
+    <h3>Click The Button Below To Get Your Coordinates.</h3>
+
+    <button onclick="getLocation()">Try It</button>
+
+    <p id="demo"></p>
+
+    <script>
+        var x = document.getElementById("demo");
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            x.innerHTML = "Latitude: " + position.coords.latitude +
+                "<br>Longitude: " + position.coords.longitude;
+        }
+    </script>
+</body>
+
+</html>
